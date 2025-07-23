@@ -1,12 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALCHEMYSTIC</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALCHEMYSTIC</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto;
+      width: 70%;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: nowrap;
+      margin-top: 20px;
+    }
+
+    .social-icons img {
+      width: 60px;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .social-icons {
+        gap: 20px;
+      }
+
+      .social-icons img {
+        width: 36px;
+      }
+    }
+  </style>
 </head>
-<body bgcolor = "black">
-    <center><img src = "img/alchemystic_logo.png" width = 50%></center>
-    
+<body>
+
+  <img src="img/alchemystic_logo.png" alt="Alchemystic Logo" class="logo">
+
+  <br><br><br><br>
+
+  <div class="social-icons">
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/alchemystic_game/" style="outline: none;">
+      <img src="img/instagram_off.png"
+           onmouseover="this.src='img/instagram_on.png';"
+           onmouseout="this.src='img/instagram_off.png';"
+           alt="Instagram"
+           title="Instagram">
+    </a>
+
+    <!-- Facebook -->
+    <a href="#" style="outline: none;">
+      <img src="img/facebook_off.png"
+           onmouseover="this.src='img/facebook_on.png';"
+           onmouseout="this.src='img/facebook_off.png';"
+           alt="Facebook"
+           title="Facebook">
+    </a>
+
+    <!-- X -->
+    <a href="https://x.com/Alchemysticgame" style="outline: none;">
+      <img src="img/x_off.png"
+           onmouseover="this.src='img/x_on.png';"
+           onmouseout="this.src='img/x_off.png';"
+           alt="X"
+           title="X">
+    </a>
+
+    <!-- Bluesky -->
+    <a href="https://bsky.app/profile/alchemysticgame.bsky.social" style="outline: none;">
+      <img src="img/bluesky_off.png"
+           onmouseover="this.src='img/bluesky_on.png';"
+           onmouseout="this.src='img/bluesky_off.png';"
+           alt="Bluesky"
+           title="Bluesky">
+    </a>
+
+    <!-- TikTok -->
+    <a href="https://www.tiktok.com/@alchemystic_game" style="outline: none;">
+      <img src="img/tiktok_off.png"
+           onmouseover="this.src='img/tiktok_on.png';"
+           onmouseout="this.src='img/tiktok_off.png';"
+           alt="TikTok"
+           title="TikTok">
+    </a>
+  </div>
+
 </body>
 </html>
+
