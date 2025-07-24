@@ -1,118 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="/img/ClientIcon.ico">
+  <title>ALCHEMYSTIC</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: black;
+      background-image: url("img/bg1.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      height: 100%;
+    }
 
-<link rel="icon" type="image/x-icon" href="/img/ClientIcon.ico">
-<title>ALCHEMYSTIC</title>
-<style>
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: black;
-  }
+    /* Mlha – kontejner */
+    .mist-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 668px; /* podle výšky obrázku */
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
 
-  body {
-    background-image: url("img/bg1.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    position: relative;
-  }
+    /* Strip s mlhou (dvě kopie obrázku vedle sebe) */
+    .mist-strip {
+      display: flex;
+      width: calc(1668px * 2); /* šířka dvou obrázků vedle sebe */
+      height: 100%;
+      animation-name: moveLeft;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      will-change: transform;
+    }
 
-  /* Mlha */
-.mist-container {
-  position: fixed; /* nebo absolute, ale fixed zabrání scrollování */
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 600px; /* výška podle obrázku */
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
+    .mist-strip.slow {
+      animation-duration: 90s;
+      opacity: 0.4;
+    }
 
-.mist-strip {
-  display: flex;
-  width: calc(1668px * 2); /* 2x obrázek vedle sebe */
-  height: 100%;
-  animation-name: moveLeft;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  will-change: transform;
-}
+    .mist-strip.fast {
+      animation-duration: 30s;
+      opacity: 0.3;
+      z-index: 2;
+      position: relative;
+    }
 
-.mist-strip.slow {
-  animation-duration: 90s;
-  opacity: 0.4;
-}
+    .mist-strip img {
+      width: 1668px;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+      pointer-events: none;
+    }
 
-.mist-strip.fast {
-  animation-duration: 30s;
-  opacity: 0.3;
-  z-index: 2;
-  position: relative;
-}
+    @keyframes moveLeft {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-1668px); /* posun o šířku jednoho obrázku */
+      }
+    }
 
-.mist-strip img {
-  width: 1668px;
-  height: 100%;
-  object-fit: cover;
-  user-select: none;
-  pointer-events: none;
-}
+    /* Logo a sociální ikony */
+    .logo {
+      display: block;
+      margin: 70px auto 0 auto;
+      width: 70%;
+      position: relative;
+      z-index: 10;
+    }
 
-@keyframes moveLeft {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-1920px); /* posun o přesnou šířku jednoho obrázku */
-  }
-}
-
-  /* Logo */
-  .logo {
-    display: block;
-    margin: 70px auto 40px auto;
-    width: 70%;
-    position: relative;
-    z-index: 10;
-  }
-
-  /* Sociální ikony */
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    flex-wrap: nowrap;
-    margin-top: 20px;
-    position: relative;
-    z-index: 10;
-  }
-
-  .social-icons img {
-    width: 75px;
-    height: auto;
-    display: block;
-  }
-
-  @media (max-width: 600px) {
     .social-icons {
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: nowrap;
+      margin-top: 20px;
+      position: relative;
+      z-index: 10;
     }
 
     .social-icons img {
       width: 75px;
+      height: auto;
+      display: block;
     }
-  }
-</style>
+
+    @media (max-width: 600px) {
+      .social-icons {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .social-icons img {
+        width: 75px;
+      }
+    }
+  </style>
 </head>
 <body>
 
