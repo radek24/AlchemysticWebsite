@@ -3,85 +3,88 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <link rel="icon" type="image/x-icon" href="/img/ClientIcon.ico">
+
+<link rel="icon" type="image/x-icon" href="/img/ClientIcon.ico">
 <title>ALCHEMYSTIC</title>
 <style>
-  body {
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     background-color: black;
+  }
+
+  body {
     background-image: url("img/bg1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    position: relative;
-    min-height: 100vh;
-  }
-
-  /* Kontejner pro mlhu */
-  .mist-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 200px /* uprav podle potøeby */
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  /* Pruh s mlhou - dvojnásobná šíøka */
-  .mist-strip {
-    display: flex;
-    width: 200%; /* dvojnásobná šíøka */
-    height: 100%;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-name: moveLeft;
-  }
-
-  .mist-strip.slow {
-    animation-duration: 90s;
-    opacity: 0.4;
-  }
-
-  .mist-strip.fast {
-    animation-duration: 30s;
-    opacity: 0.3;
-    z-index: 2;
     position: relative;
   }
 
-  /* Obrázky mlhy uvnitø stripu */
-  .mist-strip img {
-    width: 50%; /* polovina stripu = 100% viewportu */
-    height: 100%;
-    object-fit: cover;
-    user-select: none;
-    pointer-events: none;
-  }
+  /* Mlha */
+.mist-container {
+  position: fixed; /* nebo absolute, ale fixed zabrání scrollování */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 600px; /* výška podle obrázku */
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
 
-  @keyframes moveLeft {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
+.mist-strip {
+  display: flex;
+  width: calc(1920px * 2); /* 2x obrázek vedle sebe */
+  height: 100%;
+  animation-name: moveLeft;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
 
-  /* Logo a sociální ikony mají vyšší z-index */
+.mist-strip.slow {
+  animation-duration: 90s;
+  opacity: 0.4;
+}
+
+.mist-strip.fast {
+  animation-duration: 30s;
+  opacity: 0.3;
+  z-index: 2;
+  position: relative;
+}
+
+.mist-strip img {
+  width: 1920px;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes moveLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-1920px); /* posun o přesnou šířku jednoho obrázku */
+  }
+}
+
+  /* Logo */
   .logo {
     display: block;
-    margin: 70px auto 0 auto;
+    margin: 70px auto 40px auto;
     width: 70%;
     position: relative;
     z-index: 10;
   }
 
+  /* Sociální ikony */
   .social-icons {
     display: flex;
     justify-content: center;
@@ -132,8 +135,6 @@
   <!-- Logo -->
   <img src="img/alchemystic_logo.png" alt="Alchemystic Logo" class="logo" />
 
-  <br /><br /><br /><br />
-
   <!-- Sociální ikony -->
   <div class="social-icons">
     <a href="https://www.instagram.com/alchemystic_game/" style="outline: none;">
@@ -175,4 +176,3 @@
 
 </body>
 </html>
-
