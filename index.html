@@ -9,7 +9,7 @@
     html, body {
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
+      overflow: hidden;
       background-color: black;
       background-image: url("img/bg1.jpg");
       background-size: cover;
@@ -17,7 +17,33 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+    .content {
+      flex: 1;
+      padding: 20px;
     }
+    }
+    footer {
+      height: 32px;
+      background-color: #000000; /* tmavé pozadí pro kontrast */
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      z-index: 4;
+    }
+    .text-block {
+  max-width: 800px;
+  margin: 20px auto; /* zarovnání na střed a mezery kolem */
+  padding: 16px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: white;
+  font-family: sans-serif;
+  z-index: 5;
+}
 
     /* Mlha – kontejner */
     .mist-container {
@@ -25,51 +51,53 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 668px; /* podle výšky obrázku */
+      height: 668px;
       overflow: hidden;
       pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Strip s mlhou (dvě kopie obrázku vedle sebe) */
-    .mist-strip {
-      display: flex;
-      width: calc(1668px * 2); /* šířka dvou obrázků vedle sebe */
-      height: 100%;
-      animation-name: moveLeft;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      will-change: transform;
-    }
-
-    .mist-strip.slow {
-      animation-duration: 90s;
-      opacity: 0.4;
-    }
-
-    .mist-strip.fast {
-      animation-duration: 42s;
-      opacity: 0.3;
       z-index: 2;
-      position: relative;
     }
 
-    .mist-strip img {
-      width: 1668px;
-      height: 100%;
-      object-fit: cover;
-      user-select: none;
-      pointer-events: none;
-    }
+    /* Mlha – strip se 3 obrázky */
+    .mist-strip {
+  display: flex;
+  height: 100%;
+  animation-name: moveLeft;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.mist-strip.slow {
+  width: calc(1668px * 3);
+  animation-duration: 90s;
+  opacity: 0.4;
+}
+
+.mist-strip.fast {
+  width: calc(1668px * 3);
+  animation-duration: 42s;
+  opacity: 0.3;
+  z-index: 3;
+  position: relative;
+}
+
+.mist-strip img {
+  width: 1668px;
+  height: 100%;
+  user-select: none;
+  pointer-events: none;
+  display: block;
+  image-rendering: optimizeSpeed; /* nebo pixelated / crisp-edges */
+}
 
     @keyframes moveLeft {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-1668px); /* posun o šířku jednoho obrázku */
-      }
-    }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1668px);
+  }
+}
 
     /* Logo a sociální ikony */
     .logo {
@@ -110,12 +138,13 @@
   </style>
 </head>
 <body>
-
+   <div class="content">
   <!-- Pomalejší mlha -->
   <div class="mist-container">
     <div class="mist-strip slow">
       <img src="img/mist.png" alt="Mist layer slow 1" draggable="false" />
       <img src="img/mist.png" alt="Mist layer slow 2" draggable="false" />
+      <img src="img/mist.png" alt="Mist layer slow 3" draggable="false" />
     </div>
   </div>
 
@@ -124,6 +153,7 @@
     <div class="mist-strip fast">
       <img src="img/mist2.png" alt="Mist layer fast 1" draggable="false" />
       <img src="img/mist2.png" alt="Mist layer fast 2" draggable="false" />
+      <img src="img/mist2.png" alt="Mist layer fast 3" draggable="false" />
     </div>
   </div>
 
@@ -168,6 +198,13 @@
            title="TikTok" />
     </a>
   </div>
+     <div class="text-block">
+  <center>alchemysticgame@gmail.com</center>
+</div>
+   </div>
+  <footer>
+    &copy; 2025 Latest Past. All rights reserved.
+  </footer>
 
 </body>
 </html>
