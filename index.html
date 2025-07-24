@@ -9,7 +9,7 @@
     html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
+      
       background-color: black;
       background-image: url("img/bg1.jpg");
       background-size: cover;
@@ -25,15 +25,19 @@
     }
     }
     footer {
-      height: 32px;
-      background-color: #000000; /* tmavé pozadí pro kontrast */
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: sans-serif;
-      z-index: 4;
-    }
+  position: fixed;       /* pevně dole na obrazovce */
+  bottom: 0;
+  left: 0;
+  width: 100%;           /* footer přes celou šířku */
+  height: 32px;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  z-index: 9999;         /* aby byl nad vším */
+}
     .text-block {
   max-width: 800px;
   margin: 20px auto; /* zarovnání na střed a mezery kolem */
